@@ -20,5 +20,5 @@ body{height:100vh;}
 .city{
     height: 500px;
     background-color: lightblue;
-    margin-left: 15px;
+    /* margin-left: 15px; */
 }
