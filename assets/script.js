@@ -3,7 +3,9 @@ var displayTemp = document.querySelector("#temp");
 var displayHumid = document.querySelector("#humid");
 var displayWind = document.querySelector("#wnd");
 var displayUv = document.querySelector("#uv");
-
+var forcastDate = document.querySelectorAll(".card-title")
+var forcastTemp = document.querySelectorAll(".tempforecast")
+var forcastHumid = document.querySelectorAll(".humidforecast")
 var city = "New York"
 
 
@@ -13,7 +15,7 @@ var city = "New York"
 
 function getCurrentCityWeather() {
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=7a7a18a0877364062aba3b94fdafdc1d"
-//    Weather data//////////////////////////////////////////////////////////////////
+    //    Weather data//////////////////////////////////////////////////////////////////
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -35,6 +37,13 @@ function getCurrentCityWeather() {
         }
         lat = response.city.coord.lat;
         lon = response.city.coord.lon;
+        var date = response.list[0].dt_txt;
+
+        displayName.textContent = city + " " + date.substring(0, 10);
+        displayTemp.innerHTML = "Temperature: " + temperature[0] + "&#8457";
+        displayHumid.innerHTML = "Humidity: " + humidity[0] + "%";
+
+
         console.log("wind " + windSpeed);
         console.log("humidity " + humidity);
         console.log("temperature " + temperature);
@@ -43,26 +52,26 @@ function getCurrentCityWeather() {
         console.log("lat " + lat)
         console.log("lon " + lon)
 
-// UV data//////////////////////////////////////////////////////////////////
-        var queryUV = "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=7a7a18a0877364062aba3b94fdafdc1d&lat=" + lat + "&lon=" + lon + "&cnt=5"
+        // UV data//////////////////////////////////////////////////////////////////
+        var queryUV = "http://api.openweathermap.org/data/2.5/uvi?appid=7a7a18a0877364062aba3b94fdafdc1d&lat=" + lat + "&lon=" + lon + "&cnt=5"
         $.ajax({
             url: queryUV,
             method: "GET"
         }).then(function (response) {
             console.log(response);
-    
-    
+            displayUv.textContent = ("UV Index: " + response.value)
+
         });
-    
+
 
 
     })
 
-   
 
 
-   
-   
+
+
+
 
 
 
