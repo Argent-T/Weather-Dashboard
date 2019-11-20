@@ -34,105 +34,106 @@
 
 
         <div class="row main">
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-2 h-100 searchbar">
-                        <h4>Search for a City:</h4>
-                        <!-- Search bar -->
-                        <form id="city-form">
-                            <input type="text" id="search-input">
 
-                            <button class="btn btn-primary btn-sm" id="add-city" type="submit">
-                                <div id="icon">&#9906</div>
-                            </button>
-                        </form>
-                        <br>
-                        <!-- City history -->
-                        <ul id="city-history">
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                        </ul>
+            <div class="col-sm-2 searchbar">
+                <h4>Search for a City:</h4>
+                <!-- Search bar -->
+                <form id="city-form">
+                    <input type="text" id="search-input">
+
+                    <button class="btn btn-primary btn-sm" id="add-city" type="submit">
+                        <div id="icon">&#9906</div>
+                    </button>
+                </form>
+                <br>
+                <!-- City history -->
+                <ul id="city-history">
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                </ul>
+            </div>
+            <!-- main content display -->
+            
+            <div class="col content">
+                <div class="row">
+                    <div class="col-sm-12 city">
+                        <div class="container-fluid">
+                            <h2 id="displayname">CITY NAME<span id="date"> (DATE)</span></h2>
+                            <br>
+                            <p id="temp">Temperature: </p>
+                            <br>
+                            <p id="humid">Humidity: </p>
+                            <br>
+                            <p id="wnd">wind speed: </p>
+                            <br>
+                            <p id="uv">UV index: </p>
+                            <br>
+                        </div>
 
                     </div>
-                    <!-- main content display -->
-                    <div class="col content">
-                        <div class="row">
-                            <div class="col-sm-12 city">
-                                <div class="container-fluid">
-                                    <h2 id="displayname">CITY NAME<span id="date"> (DATE)</span></h2>
-                                    <br>
-                                    <p id="temp">Temperature: </p>
-                                    <br>
-                                    <p id="humid">Humidity: </p>
-                                    <br>
-                                    <p id="wnd">wind speed: </p>
-                                    <br>
-                                    <p id="uv">UV index: </p>
-                                    <br>
-                                </div>
 
-                            </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
 
-                        </div>
-                        <div class="row">
+                        <div class="col-sm-12 forecast">
 
-                            <div class="col forecast">
-                                <div class="container-fluid">
-                                    <h2>5-Day Forecast:</h2>
-                                    <div id="displaycards">
-                                        <div class="card" style="width: 18rem;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and make up the bulk of the card's content.</p>
-                                            </div>
+                            <h2>5-Day Forecast:</h2>
+                            <div class="container-fluid">
+                                <div id="displaycards">
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and make up the bulk of the card's content.</p>
                                         </div>
-                                        <div class="card" style="width: 18rem;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and make up the bulk of the card's content.</p>
-                                            </div>
+                                    </div>
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and make up the bulk of the card's content.</p>
                                         </div>
-                                        <div class="card" style="width: 18rem;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and make up the bulk of the card's content.</p>
-                                            </div>
+                                    </div>
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and make up the bulk of the card's content.</p>
                                         </div>
-                                        <div class="card" style="width: 18rem;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and make up the bulk of the card's content.</p>
-                                            </div>
+                                    </div>
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and make up the bulk of the card's content.</p>
                                         </div>
-                                        <div class="card" style="width: 18rem;">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">Some quick example text to build on the card title
-                                                    and make up the bulk of the card's content.</p>
-                                            </div>
+                                    </div>
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title
+                                                and make up the bulk of the card's content.</p>
                                         </div>
-
                                     </div>
 
-
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
 
 
-    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/script.js"></script>
