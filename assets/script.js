@@ -3,17 +3,16 @@ var displayTemp = document.querySelector("#temp");
 var displayHumid = document.querySelector("#humid");
 var displayWind = document.querySelector("#wnd");
 var displayUv = document.querySelector("#uv");
-var forcastDate = document.querySelectorAll(".card-title")
-var forcastTemp = document.querySelectorAll(".tempforecast")
-var forcastHumid = document.querySelectorAll(".humidforecast")
+var forecastDate = document.querySelectorAll(".card-title")
+var forecastTemp = document.querySelectorAll(".tempforecast")
+var forecastHumid = document.querySelectorAll(".humidforecast")
+
+
 var city = "New York"
 
 
 
-
-
-
-function getCurrentCityWeather() {
+function getforecastWeather() {
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=7a7a18a0877364062aba3b94fdafdc1d"
     //    Weather data//////////////////////////////////////////////////////////////////
     $.ajax({
@@ -26,23 +25,25 @@ function getCurrentCityWeather() {
         var windSpeed = [];
         var icon = [];
         var description = [];
+        var date = [];
         var lat = 0;
         var lon = 0;
-        for (i = 0; i < 10; i++) {
+        for (i = 0; i < 39; i++) {
             temperature.push(((response.list[i].main.temp - 273.15) * (9 / 5) + 32).toFixed(0))
             humidity.push(response.list[i].main.humidity);
             windSpeed.push(response.list[i].wind.speed);
             icon.push(response.list[i].weather[0].icon);
             description.push(response.list[i].weather[0].description);
+            date.push(response.list[i].dt_txt);
         }
         lat = response.city.coord.lat;
         lon = response.city.coord.lon;
-        var date = response.list[0].dt_txt;
 
-        displayName.textContent = city + " " + date.substring(0, 10);
+        // Today's weather////////////////////////////////////////////////////////
+        displayName.innerHTML = city + " " + date[0].substring(0, 10) + " <img src ='http://openweathermap.org/img/wn/" + icon[0] + "@2x.png'>"
         displayTemp.innerHTML = "Temperature: " + temperature[0] + "&#8457";
         displayHumid.innerHTML = "Humidity: " + humidity[0] + "%";
-
+        displayWind.innerHTML = "Wind Speed: " + windSpeed[0] + " MPH";
 
         console.log("wind " + windSpeed);
         console.log("humidity " + humidity);
@@ -51,6 +52,24 @@ function getCurrentCityWeather() {
         console.log("description " + description);
         console.log("lat " + lat)
         console.log("lon " + lon)
+
+        // Forecast//////////////////////////////////////////////////////////////
+        forecast()
+        function forecast() {
+          
+            var j = 0
+            for (i = 0; i < forecastDate.length; i++) {
+                
+                forecastDate[i].innerHTML = date[j].substring(0, 10)
+                forecastTemp[i].innerHTML = "Temp: " + temperature[j] + "&#8457";
+                forecastHumid[i].innerHTML = "Humidity: "+ humidity[j] + "%";
+                j = j + 8
+
+            };
+
+
+        }
+
 
         // UV data//////////////////////////////////////////////////////////////////
         var queryUV = "http://api.openweathermap.org/data/2.5/uvi?appid=7a7a18a0877364062aba3b94fdafdc1d&lat=" + lat + "&lon=" + lon + "&cnt=5"
@@ -77,4 +96,4 @@ function getCurrentCityWeather() {
 
 }
 
-getCurrentCityWeather()
+getforecastWeather()
