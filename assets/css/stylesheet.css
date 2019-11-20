@@ -19,6 +19,9 @@ body{height:100vh;}
 } */
 
 .city{
+    display:flex;
+    align-items: center;
+    
     margin-top:15px;
     
     margin-left: 15px;

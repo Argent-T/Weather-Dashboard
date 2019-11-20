@@ -41,8 +41,10 @@
 
                         <form id="city-form">
                             <input type="text" id="search-input">
-                            
-                            <button  class = "btn btn-primary btn-sm" id="add-city" type="submit" ><div id="icon">&#9906</div></button>
+
+                            <button class="btn btn-primary btn-sm" id="add-city" type="submit">
+                                <div id="icon">&#9906</div>
+                            </button>
                         </form>
                         <br>
                         <ul id="city-history">
@@ -60,7 +62,19 @@
                     <div class="col content">
                         <div class="row">
                             <div class="col-sm-12 city">
-                                CITY
+                                <div class="container">
+                                    <h2 id="displayname">CITY NAME<span id="date"> (DATE)</span></h2>
+                                    <br>
+                                    <p id="temp">Temperature: </p>
+                                    <br>
+                                    <p id="humid">Humidity: </p>
+                                    <br>
+                                    <p id="wnd">wind speed: </p>
+                                    <br>
+                                    <p id="uv">UV index: </p>
+                                    <br>
+                                </div>
+
                             </div>
 
                         </div>
@@ -75,7 +89,9 @@
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/script.js"></script>
+
 </body>
 
 </html>

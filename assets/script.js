@@ -1,4 +1,8 @@
-
+var displayName = document.querySelector("#displayname");
+var displayTemp = document.querySelector("#temp");
+var displayHumid = document.querySelector("#humid");
+var displayWind = document.querySelector("#wnd");
+var displayUv = document.querySelector("#uv");
 
 var city = "New York"
 
