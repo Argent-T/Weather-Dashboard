@@ -52,5 +52,16 @@ body{height:100vh;}
     display:flex;
 }
 
-
+li{
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    border-style: solid;
+    border-color: darkgrey;
+    border-width: 2px;
+    border-radius: 5px;
+}
+p{
+    font-size: 20px;
+}
 

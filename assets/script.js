@@ -14,20 +14,22 @@ var historyList = document.querySelector("#city-history")
 var cityHistory = [];
 var city = "New York";
 
+renderCityHistory();
 getforecastWeather();
-
 getCurrentWeather();
 
 button.addEventListener("click", function (event) {
     event.preventDefault();
-    var cit = document.querySelector("#search-input").value.trim();
+    var cit = searchInput.value.trim();
     if (cit !== "") {
         city = cit;
 
         cityHistory.push(city);
-        localStorage.setItem("Cities", JSON.stringify(cityHistory) )
+        localStorage.setItem("Cities", JSON.stringify(cityHistory))
+        searchInput.value = "";
         getforecastWeather();
         getCurrentWeather();
+        renderCityHistory();
     }
     else { return }
 });
@@ -115,15 +117,21 @@ function getCurrentWeather() {
         displayWind.innerHTML = "Wind Speed: " + response.wind.speed + " MPH";
     })
 }
-renderCityHistory()
-function renderCityHistory() {
-    historyList.innerHTML = "";
-    for(var i=0; i<cityHistory.length; i++){
-    var cityname = cityHistory[i];
 
-    var li = document.createElement("li");
-    li.textContent = cityname;
-    historyList.appendChild(li);
+function renderCityHistory() {
+    var storedCities = JSON.parse(localStorage.getItem("Cities"));
+    if (storedCities !== null) {
+        cityHistory = storedCities;
+        city = cityHistory.slice(-1)[0];
+    }
+
+    historyList.innerHTML = "";
+    for (var i = 0; i < cityHistory.length; i++) {
+        var cityname = cityHistory[i];
+
+        var li = document.createElement("li");
+        li.textContent = cityname;
+        historyList.appendChild(li);
 
     }
 
