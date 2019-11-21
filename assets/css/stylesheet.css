@@ -8,11 +8,11 @@ body{height:100vh;}
 
 .searchbar{
     /* fuck this search bar */
-    position:absolute;
-    left: 0px;
+    /* position:absolute;
+    left: 0px; */
   
     background-color: lightgrey;
-    /* min-height: 100vh; */
+    min-height: 100vh;
     height: 100%;
     min-width:300px;
  
