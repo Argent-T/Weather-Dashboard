@@ -7,8 +7,31 @@ var forecastDate = document.querySelectorAll(".card-title");
 var forecastTemp = document.querySelectorAll(".tempforecast");
 var forecastHumid = document.querySelectorAll(".humidforecast");
 var forecastIcon = document.querySelectorAll(".forecastIcon");
+var searchInput = document.querySelector("#search-input");
+var button = document.querySelector("#add-city");
+
+
 
 var city = "New York";
+
+getforecastWeather()
+
+getCurrentWeather()
+
+button.addEventListener("click", function (event) {
+    event.preventDefault();
+    var cit = document.querySelector("#search-input").value;
+    if(cit !== ""){
+        city = cit;
+        
+        getforecastWeather()
+        getCurrentWeather()
+    }
+    else{return}
+});
+
+
+
 
 
 
@@ -39,8 +62,6 @@ function getforecastWeather() {
         lat = response.city.coord.lat;
         lon = response.city.coord.lon;
 
-        // Today's weather////////////////////////////////////////////////////////
-
         // console.log("wind " + windSpeed);
         // console.log("humidity " + humidity);
         // console.log("temperature " + temperature);
@@ -52,19 +73,14 @@ function getforecastWeather() {
         // Forecast//////////////////////////////////////////////////////////////
         forecast()
         function forecast() {
-
             var j = 0
             for (i = 0; i < forecastDate.length; i++) {
-
                 forecastDate[i].innerHTML = date[j].substring(0, 10)
                 forecastTemp[i].innerHTML = "Temp: " + temperature[j] + "&#8457";
                 forecastHumid[i].innerHTML = "Humidity: " + humidity[j] + "%";
                 forecastIcon[i].src = "https://openweathermap.org/img/wn/" + icon[j] + ".png"
                 j = j + 8
-
             };
-
-
         }
 
         // UV data//////////////////////////////////////////////////////////////////
@@ -75,18 +91,13 @@ function getforecastWeather() {
         }).then(function (response) {
             console.log(response);
             displayUv.textContent = ("UV Index: " + response.value);
-
         });
 
     })
 
-
-
 }
 
-getforecastWeather()
-
-getCurrentWeather()
+// Today's weather////////////////////////////////////////////////////////
 function getCurrentWeather() {
     var currentURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=7a7a18a0877364062aba3b94fdafdc1d"
 
