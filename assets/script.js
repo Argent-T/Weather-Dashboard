@@ -13,7 +13,7 @@ var city = "New York";
 
 
 function getforecastWeather() {
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=7a7a18a0877364062aba3b94fdafdc1d"
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=7a7a18a0877364062aba3b94fdafdc1d"
     //    Weather data//////////////////////////////////////////////////////////////////
     $.ajax({
         url: queryURL,
@@ -68,7 +68,7 @@ function getforecastWeather() {
         }
 
         // UV data//////////////////////////////////////////////////////////////////
-        var queryUV = "http://api.openweathermap.org/data/2.5/uvi?appid=7a7a18a0877364062aba3b94fdafdc1d&lat=" + lat + "&lon=" + lon + "&cnt=5"
+        var queryUV = "https://api.openweathermap.org/data/2.5/uvi?appid=7a7a18a0877364062aba3b94fdafdc1d&lat=" + lat + "&lon=" + lon + "&cnt=5"
         $.ajax({
             url: queryUV,
             method: "GET"
@@ -88,7 +88,7 @@ getforecastWeather()
 
 getCurrentWeather()
 function getCurrentWeather() {
-    var currentURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=7a7a18a0877364062aba3b94fdafdc1d"
+    var currentURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=7a7a18a0877364062aba3b94fdafdc1d"
 
     $.ajax({
         url: currentURL,
@@ -96,7 +96,7 @@ function getCurrentWeather() {
     }).then(function (response) {
         console.log(response);
 
-        displayName.innerHTML = city + " - " + moment().format('MMM Do YYYY, h:mm a') + " <img src ='http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png'>"
+        displayName.innerHTML = city + " - " + moment().format('MMM Do YYYY, h:mm a') + " <img src ='https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png'>"
         displayTemp.innerHTML = "Temperature: " + (((response.main.temp - 273.15) * (9 / 5) + 32).toFixed(0)) + "&#8457";
         displayHumid.innerHTML = "Humidity: " + response.main.humidity + "%";
         displayWind.innerHTML = "Wind Speed: " + response.wind.speed + " MPH";
