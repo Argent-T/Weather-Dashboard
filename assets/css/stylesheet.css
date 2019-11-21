@@ -14,12 +14,12 @@ body{height:100vh;}
     background-color: lightgrey;
     min-height: 100vh;
     height: 100%;
-    min-width:300px;
+    /* width:300px; */
  
 }
-.content{
+/* .content{
     margin-left: 310px;
-}
+} */
 .city{
     display:flex;
     align-items: center;
@@ -36,7 +36,8 @@ body{height:100vh;}
 
 #search-input{
     border-radius: 5px;
-    width: 200px;
+    /* width: 200px; */
+    width: 100%;
 }
 #city-form{
     display:flex;
