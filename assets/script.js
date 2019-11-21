@@ -9,25 +9,27 @@ var forecastHumid = document.querySelectorAll(".humidforecast");
 var forecastIcon = document.querySelectorAll(".forecastIcon");
 var searchInput = document.querySelector("#search-input");
 var button = document.querySelector("#add-city");
+var historyList = document.querySelector("#city-history")
 
-
-
+var cityHistory = [];
 var city = "New York";
 
-getforecastWeather()
+getforecastWeather();
 
-getCurrentWeather()
+getCurrentWeather();
 
 button.addEventListener("click", function (event) {
     event.preventDefault();
-    var cit = document.querySelector("#search-input").value;
-    if(cit !== ""){
+    var cit = document.querySelector("#search-input").value.trim();
+    if (cit !== "") {
         city = cit;
-        
-        getforecastWeather()
-        getCurrentWeather()
+
+        cityHistory.push(city);
+        localStorage.setItem("Cities", JSON.stringify(cityHistory) )
+        getforecastWeather();
+        getCurrentWeather();
     }
-    else{return}
+    else { return }
 });
 
 
@@ -71,7 +73,7 @@ function getforecastWeather() {
         // console.log("lon " + lon)
 
         // Forecast//////////////////////////////////////////////////////////////
-        forecast()
+        forecast();
         function forecast() {
             var j = 0
             for (i = 0; i < forecastDate.length; i++) {
@@ -111,9 +113,20 @@ function getCurrentWeather() {
         displayTemp.innerHTML = "Temperature: " + (((response.main.temp - 273.15) * (9 / 5) + 32).toFixed(0)) + "&#8457";
         displayHumid.innerHTML = "Humidity: " + response.main.humidity + "%";
         displayWind.innerHTML = "Wind Speed: " + response.wind.speed + " MPH";
-
-
-
     })
 }
+renderCityHistory()
+function renderCityHistory() {
+    historyList.innerHTML = "";
+    for(var i=0; i<cityHistory.length; i++){
+    var cityname = cityHistory[i];
 
+    var li = document.createElement("li");
+    li.textContent = cityname;
+    historyList.appendChild(li);
+
+    }
+
+
+
+}
