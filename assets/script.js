@@ -59,7 +59,7 @@ function getforecastWeather() {
                 forecastDate[i].innerHTML = date[j].substring(0, 10)
                 forecastTemp[i].innerHTML = "Temp: " + temperature[j] + "&#8457";
                 forecastHumid[i].innerHTML = "Humidity: " + humidity[j] + "%";
-                forecastIcon[i].src = "http://openweathermap.org/img/wn/" + icon[j] + ".png"
+                forecastIcon[i].src = "https://openweathermap.org/img/wn/" + icon[j] + ".png"
                 j = j + 8
 
             };
