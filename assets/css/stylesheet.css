@@ -32,6 +32,7 @@ body{height:100vh;}
     border-style: solid;
     border-color: lightgrey;
     border-width: 2px;
+    min-height: 263px;
 }
 
 #search-input{
